@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 mongoose.set('useFindAndModify', false)
 // mongoose.connect('mongodb://47.107.182.109/stdbreak');
-mongoose.connect('mongodb://139.224.131.108/culture', { 
+mongoose.connect('mongodb://139.224.131.108/api', { 
     useNewUrlParser: true ,
     useUnifiedTopology: true
 },(err,res)=>{

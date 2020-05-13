@@ -6,7 +6,7 @@ const onerror = require('koa-onerror')
 // const bodyparser = require('koa-bodyparser')
 const logger = require('koa-logger')
 const koaBody = require('koa-body');
-
+const cors=require('koa2-cors')
 const index = require('./routes/index')
 
 
@@ -18,7 +18,7 @@ onerror(app)
 // app.use(bodyparser({
 //   enableTypes: ['json', 'form', 'text']
 // }));
-
+app.use(cors()); //解决跨域
 app.use(koaBody({
   multipart: true,
   formidable: {

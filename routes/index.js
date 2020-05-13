@@ -3,17 +3,19 @@ const db = require('./crud')
 
 
 
-router.get('/login', async (ctx, next) => {
+router.post('/login', async (ctx, next) => {
   let req = ctx.request
   var {username,password} = req.body;
+
   let res = await db.findUser(username,password)
+console.log(res )
   ctx.body = res
 
 })
 
-router.get('/publish', async (ctx, next) => {
+router.get('/', async (ctx, next) => {
 
-  await ctx.render('publish')
+  ctx.body = "江远强的技术博客"
 
 })
 
