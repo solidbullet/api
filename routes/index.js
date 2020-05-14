@@ -1,13 +1,13 @@
 const router = require('koa-router')()
-const db = require('./crud')
-
-
+const dbuser = require('../controller/usercontroller')
+const dbtoken = require('../controller/tokencontroller')
+const util = require('./util.js')
 
 router.post('/login', async (ctx, next) => {
   let req = ctx.request
   var {username,password} = req.body;
 
-  let res = await db.findUser(username,password)
+  let res = await dbuser.findUser(username,password)
 console.log(res )
   ctx.body = res
 
@@ -19,6 +19,11 @@ router.get('/', async (ctx, next) => {
 
 })
 
+router.get('/token', async (ctx, next) => {
+  let res = await util.getToken()
+  ctx.body = res
+
+})
 
 
 
